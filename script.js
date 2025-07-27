@@ -79,7 +79,7 @@ function initTerminal() {
   }, 8000);
 }
 
-// Handle keyboard input only when terminal is active
+// Handle keyboard input
 function handleTerminalInput(e) {
   // Only process if terminal is visible
   const terminalWindow = document.querySelector('.terminal-window');
@@ -102,9 +102,7 @@ function handleTerminalInput(e) {
     terminalContent.removeChild(inputLine);
     
     // Add the command to output
-    const commandOutput = document.createElement('p');
-    commandOutput.textContent = '>' + command;
-    terminalContent.appendChild(commandOutput);
+    addTerminalOutput(commandText);
     
     // Process command and add output
     if (command in commands) {
@@ -167,8 +165,8 @@ document.querySelectorAll('.nav-link').forEach(anchor => {
   });
 });
 
-// Form submission with email functionality
-document.getElementById('contactForm').addEventListener('submit', function(e) {
+// Form submission
+document.querySelector('.cyber-form')?.addEventListener('submit', function(e) {
   e.preventDefault();
   
   // Get form values
@@ -184,7 +182,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
   // Open default email client
   window.location.href = mailtoLink;
   
-  // Optional: Show confirmation message
+  // Show confirmation message
   const confirmation = document.createElement('div');
   confirmation.className = 'cyber-alert';
   confirmation.innerHTML = `
@@ -193,7 +191,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
   `;
   this.parentNode.insertBefore(confirmation, this.nextSibling);
   
-  // Optional: Reset form after delay
+  // Reset form after delay
   setTimeout(() => {
     this.reset();
     confirmation.remove();
