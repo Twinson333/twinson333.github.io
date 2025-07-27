@@ -200,7 +200,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
   }, 3000);
 });
 
-// Typewriter effect for subtitle
+// Typewriter effect code with this:
 const typewriterElements = document.querySelectorAll('.typewriter');
 typewriterElements.forEach(el => {
   const strings = JSON.parse(el.getAttribute('data-strings'));
@@ -212,13 +212,15 @@ typewriterElements.forEach(el => {
     el.style.width = '0';
     el.textContent = '';
     
-    setTimeout(() => {
-      el.style.animation = 'typewriter 3s steps(40) 1s 1 normal both, blink-caret 0.75s step-end infinite';
-      el.textContent = text;
-      
-      currentString = (currentString + 1) % strings.length;
-      setTimeout(typeNextString, 5000);
-    }, 500);
+    // Force reflow
+    void el.offsetWidth;
+    
+    // Set content and start animation
+    el.textContent = text;
+    el.style.animation = `typewriter ${text.length/10}s steps(${text.length}) 1s 1 normal both, blink-caret 0.75s step-end infinite`;
+    
+    currentString = (currentString + 1) % strings.length;
+    setTimeout(typeNextString, (text.length/10 + 3) * 1000); // Wait until animation completes plus 3 seconds
   }
   
   typeNextString();
