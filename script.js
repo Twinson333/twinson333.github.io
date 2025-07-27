@@ -5,11 +5,11 @@ let currentInput = '';
 
 const commands = {
   help: 'Available commands: help, clear, about, skills, experience, projects, contact, start',
-  clear: function() { 
-    terminalContent.innerHTML = '<p>> Welcome to Antony Twinson\'s cybersecurity hub</p><p>> Type \'help\' for available commands</p>';
-    addInputLine();
-  },
-  about: 'Antony Twinson - Cybersecurity specialist and engineering student. Top 2% on TryHackMe.',
+  clear: function() {
+  // Refresh the page to completely reset the terminal
+  location.reload();
+},
+  about: 'Antony Esthak Twinson - Cybersecurity specialist and engineering student. Top 2% on TryHackMe.',
   skills: 'Penetration Testing, Web Security, Python, Burp Suite, Metasploit, Nmap, and more.',
   experience: 'Bug Bounty Hunter since 2023. TryHackMe Top 2% performer.',
   projects: 'Web Vulnerability Scanner, CTF Solutions, and various security tools.',
@@ -66,7 +66,7 @@ function initTerminal() {
   terminalContent.innerHTML = `
     <p>> Initializing security portfolio...</p>
     <p>> Loading pentesting modules...</p>
-    <p>> Welcome to Antony Twinson's cybersecurity hub</p>
+    <p>> Welcome to Antony Esthak Twinson's cybersecurity hub</p>
     <p>> Type 'help' for available commands</p>
   `;
   addInputLine();
