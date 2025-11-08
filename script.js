@@ -4,7 +4,7 @@ const mainContent = document.getElementById('main-content');
 let currentInput = '';
 
 const commands = {
-  help: 'Available commands: help, clear, about, skills, experience, projects, contact, start',
+  help: 'Available commands: help, about, skills, experience, projects, contact, clear, start',
   clear: function() {
   // Refresh the page to completely reset the terminal
   location.reload();
