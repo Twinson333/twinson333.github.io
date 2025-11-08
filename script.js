@@ -76,7 +76,7 @@ function initTerminal() {
     if (!interactionDetected) {
       commands.start();
     }
-  }, 4000);
+  }, 2000);
 }
 
 // Handle keyboard input
